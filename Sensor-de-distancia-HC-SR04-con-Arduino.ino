@@ -7,26 +7,30 @@
   Twitter https://goo.gl/du5Wgn
   Github https://goo.gl/Xl5IiS
   Google Plus https://goo.gl/gBnUdh
-  WEB https://goo.gl/jtiYJy
+  WEB https://www.proyecto-teos.com/
 */
 
-#include <Ultrasonic.h>
-int distanceT, finalDistanceT, sumT = 0;
+#include <Ultrasonic.h> //https://github.com/JRodrigoTech/Ultrasonic-HC-SR04
+uint16_t distanceT, arrayT[10];
 
-Ultrasonic ultrasonicT(9,8); 
+Ultrasonic ultrasonicT(3, 2);
 
 void setup() {
-  Serial.begin(9600); 
+  Serial.begin(9600);
 }
 
-void loop(){
-  for(int iT = 0; iT<=10; iT+=1){
-    sumT = sumT + (distanceT = ultrasonicT.Ranging(CM));
+void loop() {
+  String resultSerialT = "La distancia es de: " + String(finalDistanceT()) + " cm";
+  Serial.println(resultSerialT);
+}
+
+uint16_t finalDistanceT() {
+  for (uint8_t iT = 0; iT < 10; iT++) {
+    arrayT[iT] = ultrasonicT.Ranging(CM);
     delay(70);
   }
-  finalDistanceT = sumT/10;
-  sumT = 0;
-  Serial.print("La distancia actual es de ");
-  Serial.print(finalDistanceT);
-  Serial.println(" CM");
+  for (uint8_t iT = 0; iT < 10; iT++)
+    distanceT += arrayT[iT];
+  distanceT /= 10;
+  return distanceT;
 }
