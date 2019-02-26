@@ -10,7 +10,7 @@ Conoce la distancia de un punto a otro con el sensor ultrasónico HC- SR04.
 **[Aqui](https://github.com/proyectoTEOS/Sensor-de-distancia-HC-SR04-con-Arduino/blob/master/Sensor-de-distancia-HC-SR04-con-Arduino.ino)** podrás obtener el link del código, también dejaremos
 una vista previa aquí abajo.
 
-```
+```c++
 /*
   Created by TEOS
   Domotic with Arduino https://goo.gl/btZpjs
