@@ -1,5 +1,5 @@
 #Ignored
-.fzz
+*.fzz
 
 # Prerequisites
 *.d
